@@ -6,6 +6,10 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT
 
+app.get('/test', (req, res) => {
+  res.send('this is a test route')
+})
+
 app.get('/', (req, res) => {
   res.send('Express + TypeScript Server')
 })
