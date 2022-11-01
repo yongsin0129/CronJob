@@ -1,4 +1,10 @@
 {
   "version": 2,
-  "name": "my-ts-app"
+  "name": "my-ts-app",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/index.js"
+    }
+  ]
 }
