@@ -1,16 +1,4 @@
 {
   "version": 2,
-  "name": "my-ts-app",
-  "builds": [
-    {
-      "src": "src/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/index.ts"
-    }
-  ]
+  "name": "my-ts-app"
 }
