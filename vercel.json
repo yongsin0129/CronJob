@@ -3,7 +3,7 @@
   "name": "my-ts-app",
   "builds": [
     {
-      "src": "index.js",
+      "src": "index.ts",
       "use": "@vercel/node"
     }
   ],
