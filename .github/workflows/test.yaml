@@ -1,4 +1,5 @@
 name: test
+
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -7,6 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call our API route
-        run: |
-          curl -k  https://selflearning-vercel-deploy-test.vercel.app/addNumber
+        run: curl -k  https://selflearning-vercel-deploy-test.vercel.app/addNumber
 
