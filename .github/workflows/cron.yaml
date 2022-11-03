@@ -1,18 +1,19 @@
-name: cron
+# name: cron
 
-on:
-  schedule:
-    # Runs "At 11:00 on every day-of-week from Monday through Friday"
-    - cron: '*/10 * * * *'
+# on:
+#   schedule:
+#     # Runs "At 11:00 on every day-of-week from Monday through Friday"
+#     - cron: '*/10 * * * *'
 
-jobs:
-  cron:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call our API route
-        run: |
-          curl --request GET \
-          -k 'https://selflearning-vercel-deploy-test.vercel.app/addNumber' \
-          --header 'Authorization: Bearer ${{  }}'
+# jobs:
+#   cron:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Call our API route
+#         run: |
+#           curl --request GET \
+#           -k 'https://selflearning-vercel-deploy-test.vercel.app/addNumber' \
+#           --header 'Authorization: Bearer ${{  }}'
 
-
+# note :
+# run behind | will error on github action
