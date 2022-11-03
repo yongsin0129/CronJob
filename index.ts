@@ -11,8 +11,8 @@ const time = new Date()
 let number = 0
 
 const timerNumber = setInterval(() => {
-  number++
-}, 1000)
+  addNumberAndReset()
+}, 500)
 
 app.get('/test', (req, res) => {
   res.send({
@@ -35,3 +35,14 @@ app.listen(port, () => {
           deploy website : https://selflearning-vercel-deploy-test.vercel.app/
 *
 *********************************************************************************/
+
+/********************************************************************************
+*
+          helper
+*
+*********************************************************************************/
+function addNumberAndReset (): void {
+  if (number >= 10) number = 0
+  else number++
+  return
+}
