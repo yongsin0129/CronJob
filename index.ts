@@ -10,14 +10,23 @@ const word = 'It`s a test word'
 const time = new Date()
 let number = 0
 
-const timerNumber = setInterval(() => {
-  addNumberAndReset()
-}, 500)
+// const timerNumber = setInterval(() => {
+//   addNumberAndReset()
+// }, 500)
 
 app.get('/test', (req, res) => {
   res.send({
     first: 'this is a test route , check variable "time" is : ' + time,
     second: word,
+    number: number
+  })
+})
+
+app.get('/addNumber', (req, res) => {
+  addNumberAndReset()
+
+  res.send({
+    first: 'add number successful',
     number: number
   })
 })
@@ -42,7 +51,7 @@ app.listen(port, () => {
 *
 *********************************************************************************/
 function addNumberAndReset (): void {
-  if (number >= 10) number = 0
-  else number++
+  if (number >= 100) number = 0
+  else number += 10
   return
 }
