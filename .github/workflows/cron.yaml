@@ -1,4 +1,4 @@
-name: Trigger Action on a CRON Schedule
+name: cron
 
 on:
   schedule:
@@ -12,7 +12,7 @@ jobs:
       - name: Call our API route
         run: |
           curl --request GET \
-          --url 'https://selflearning-vercel-deploy-test.vercel.app/addNumber' \
+          -k 'https://selflearning-vercel-deploy-test.vercel.app/addNumber' \
           --header 'Authorization: Bearer ${{  }}'
 
 
