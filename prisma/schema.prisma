@@ -7,6 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model text {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  v    Int    @map("__v")
+  text String
+}
+
 model courses {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   v           Int      @map("__v")

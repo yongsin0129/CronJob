@@ -1,7 +1,9 @@
 import express, { Express, Request, Response } from 'express'
-import { PrismaClient } from '@prisma/client'
-import dotenv from 'dotenv'
+import { PrismaClient } from '.\\node_modules\\@prisma\\client'
+const prisma = new PrismaClient()
 
+import dotenv from 'dotenv'
+import { stringify } from 'querystring'
 dotenv.config()
 
 const app = express()
@@ -14,21 +16,17 @@ const time2 = timeFormatter(new Date())
 
 let number = 0
 
-app.get('/test', (req, res) => {
-  res.send({
-    time1: 'this is a PNPM-RED  test route , Asia/Taipei Local time is : ' + time1,
-    time2: 'this is a PNPM - RED test route , ' + time2,
-    second: word,
-    number: number
-  })
+app.get('/test', async (req, res) => {
+  const result = await prisma.text.findMany()
+  res.send(result)
 })
 
-app.get('/addNumber', (req, res) => {
-  addNumberAndReset()
+app.get('/addData', async (req, res) => {
+  await main()
 
   res.send({
-    first: 'add number successful',
-    number: number
+    first: 'add date to mongodb successful',
+    time: time1
   })
 })
 
@@ -57,7 +55,7 @@ function addNumberAndReset (): void {
   return
 }
 
-function timeFormatter (timeObj: Date) {
+function timeFormatter (timeObj: Date): string {
   let time = timeObj
   let year = time.getFullYear()
   let month = time.getMonth()
@@ -69,6 +67,34 @@ function timeFormatter (timeObj: Date) {
 
   const dayName = ['日', '一', '二', '三', '四', '五', '六']
 
+  return ` 現在是台北標準時間 ${year} 年 ${month + 1} 月 ${date} 日星期 ${
+    dayName[day]
+  } ${hours} : ${minutes} : ${seconds} `
+}
 
-  return ` 現在是台北標準時間 ${year} 年 ${month + 1} 月 ${date} 日星期 ${dayName[day]} ${hours} : ${minutes} : ${seconds} `
+/********************************************************************************
+*
+          database
+*
+*********************************************************************************/
+
+async function main () {
+  // const result = await prisma.users.create({
+  //   data: {
+  //     v: 0,
+  //     date: new Date(),
+  //     email: 'user3@example',
+  //     password: '12345678',
+  //     role: 'student',
+  //     username: 'user3'
+  //   }
+  // })
+  // const result = await prisma.text.findMany()
+  const timeString = timeFormatter(new Date())
+  const result = await prisma.text.create({
+    data: {
+      v: 2,
+      text: timeString
+    }
+  })
 }
