@@ -15,8 +15,8 @@ let number = 0
 
 app.get('/test', (req, res) => {
   res.send({
-    time1: 'this is a test route , Asia/Taipei Local time is : ' + time1,
-    time2: 'this is a test route , ' + time2,
+    time1: 'this is a PNPM-RED  test route , Asia/Taipei Local time is : ' + time1,
+    time2: 'this is a PNPM - RED test route , ' + time2,
     second: word,
     number: number
   })
@@ -32,7 +32,7 @@ app.get('/addNumber', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('Express + TypeScript Server')
+  res.send('PNPM-RED Express + TypeScript Server')
 })
 
 app.listen(port, () => {
