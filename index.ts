@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from 'express'
-import { PrismaClient } from '.\\node_modules\\@prisma\\client'
+import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 import dotenv from 'dotenv'
@@ -13,19 +13,19 @@ const time1 = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/taipei' })
 // const time1 =new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
 const time2 = timeFormatter(new Date())
 
-// app.get('/test', async (req, res) => {
-//   const result = await prisma.text.findMany()
-//   res.send(result)
-// })
+app.get('/test', async (req, res) => {
+  const result = await prisma.text.findMany()
+  res.send(result)
+})
 
-// app.get('/addData', async (req, res) => {
-//   await main()
+app.get('/addData', async (req, res) => {
+  await main()
 
-//   res.send({
-//     first: 'add date to mongodb successful',
-//     time: time1
-//   })
-// })
+  res.send({
+    first: 'add date to mongodb successful',
+    time: time1
+  })
+})
 
 app.get('/', (req, res) => {
   res.send('完成 prisma create and findMany version Express + TypeScript Server')
@@ -68,23 +68,23 @@ function timeFormatter (timeObj: Date): string {
 *
 *********************************************************************************/
 
-// async function main () {
-//   // const result = await prisma.users.create({
-//   //   data: {
-//   //     v: 0,
-//   //     date: new Date(),
-//   //     email: 'user3@example',
-//   //     password: '12345678',
-//   //     role: 'student',
-//   //     username: 'user3'
-//   //   }
-//   // })
-//   // const result = await prisma.text.findMany()
-//   const timeString = timeFormatter(new Date())
-//   const result = await prisma.text.create({
-//     data: {
-//       v: 2,
-//       text: timeString
-//     }
-//   })
-// }
+async function main () {
+  // const result = await prisma.users.create({
+  //   data: {
+  //     v: 0,
+  //     date: new Date(),
+  //     email: 'user3@example',
+  //     password: '12345678',
+  //     role: 'student',
+  //     username: 'user3'
+  //   }
+  // })
+  // const result = await prisma.text.findMany()
+  const timeString = timeFormatter(new Date())
+  const result = await prisma.text.create({
+    data: {
+      v: 2,
+      text: timeString
+    }
+  })
+}
