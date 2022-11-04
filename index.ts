@@ -28,7 +28,9 @@ app.get('/addData', async (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('完成 prisma create and findMany version Express + TypeScript Server')
+  res.send(
+    '完成 prisma create and findMany version Express + TypeScript Server'
+  )
 })
 
 app.listen(port, () => {
@@ -37,7 +39,7 @@ app.listen(port, () => {
 
 /********************************************************************************
 *
-          deploy website : https://red-test-mr87vlhe9-yongsin0129.vercel.app/test
+          deploy website : https://red-test-yongsin0129.vercel.app/test
 *
 *********************************************************************************/
 
@@ -80,11 +82,11 @@ async function main () {
   //   }
   // })
   // const result = await prisma.text.findMany()
-  const timeString = timeFormatter(new Date())
+
   const result = await prisma.text.create({
     data: {
       v: 2,
-      text: timeString
+      text: time1
     }
   })
 }

@@ -13,4 +13,5 @@ jobs:
     steps:
       - name: Call our API route
         # run: echo Hello, world!
-        run: curl -k  https://red-test-mr87vlhe9-yongsin0129.vercel.app/addData
+        run: curl -k  https://red-test-yongsin0129.vercel.app/addData
+
