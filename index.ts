@@ -1,9 +1,8 @@
 import express, { Express, Request, Response } from 'express'
-// import { PrismaClient } from '.\\node_modules\\@prisma\\client'
-// const prisma = new PrismaClient()
+import { PrismaClient } from '.\\node_modules\\@prisma\\client'
+const prisma = new PrismaClient()
 
 import dotenv from 'dotenv'
-import { stringify } from 'querystring'
 dotenv.config()
 
 const app = express()
@@ -13,8 +12,6 @@ const word = 'It`s a test word'
 const time1 = new Date().toLocaleString('zh-TW', { timeZone: 'Asia/taipei' })
 // const time1 =new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
 const time2 = timeFormatter(new Date())
-
-let number = 0
 
 // app.get('/test', async (req, res) => {
 //   const result = await prisma.text.findMany()
@@ -49,12 +46,6 @@ app.listen(port, () => {
           helper
 *
 *********************************************************************************/
-function addNumberAndReset (): void {
-  if (number >= 100) number = 0
-  else number += 10
-  return
-}
-
 function timeFormatter (timeObj: Date): string {
   let time = timeObj
   let year = time.getFullYear()
@@ -71,7 +62,6 @@ function timeFormatter (timeObj: Date): string {
     dayName[day]
   } ${hours} : ${minutes} : ${seconds} `
 }
-
 /********************************************************************************
 *
           database
