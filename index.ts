@@ -31,7 +31,7 @@ app.get('/addData', async (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('PNPM-RED Express + TypeScript Server')
+  res.send('完成 prisma create and findMany version Express + TypeScript Server')
 })
 
 app.listen(port, () => {
@@ -40,7 +40,7 @@ app.listen(port, () => {
 
 /********************************************************************************
 *
-          deploy website : https://selflearning-vercel-deploy-test.vercel.app/
+          deploy website : https://red-test-mr87vlhe9-yongsin0129.vercel.app/test
 *
 *********************************************************************************/
 
