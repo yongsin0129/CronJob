@@ -3,7 +3,6 @@ name: Call API-addNumber
 on:
   schedule:
     - cron: '*/30 * * * *'
-      branches: [Master]
 
   # 允許你從 Action 頁簽上手動執行 workflow
   workflow_dispatch:
