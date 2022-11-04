@@ -1,0 +1,16 @@
+name: Call API-addNumber
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+  # 允許你從 Action 頁簽上手動執行 workflow
+  workflow_dispatch:
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call our API route
+        run: echo Hello, world!
+        run: curl -k  https://selflearning-vercel-deploy-test.vercel.app/addNumber
