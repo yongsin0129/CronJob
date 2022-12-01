@@ -2,7 +2,7 @@ name: Call API-add and update firstRound movie list
 
 on:
   schedule:
-#     - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'
 
   # 允許你從 Action 頁簽上手動執行 workflow
   workflow_dispatch:
