@@ -1,8 +1,8 @@
 name: Call API-update movieList database
 
 on:
-  schedule:
-    - cron: '0 */12 * * *'
+#   schedule:
+#     - cron: '0 */12 * * *'
 
   # 允許你從 Action 頁簽上手動執行 workflow
   workflow_dispatch:
